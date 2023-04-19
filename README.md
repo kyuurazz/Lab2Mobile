@@ -1,16 +1,88 @@
-# lab2mobile
+# Tugas Pemograman Mobile 2
+## Profil
 
-A new Flutter project.
+| #               | Biodata              |
+| --------------- | -------------------- |
+| **Nama**        | Bilal AlHafidz       |
+| **NIM**         | 312110397            |
+| **Kelas**       | TI.21.A.1            |
+| **Mata Kuliah** | Pemrograman Mobile 2 |
 
-## Getting Started
+# Penjelasan
+<p>Untuk membuat sebuah aplikasi Flutter dengan tampilan UI sederhana yang terdiri dari satu halaman (page) yang menampilkan teks dan tombol. Berikut ini penjelasan dari kode tersebut.</p>
 
-This project is a starting point for a Flutter application.
+1. Import Package
+```dart
+import 'package:flutter/material.dart';
+```
+<p>Kode tersebut berfungsi untuk mengimport package material.dart dari Flutter Framework yang dibutuhkan untuk membuat tampilan UI.</p>
 
-A few resources to get you started if this is your first Flutter project:
+2. Function Main
+```dart
+void main() {
+  runApp(const MyApp());
+}
+```
+<p>Kode tersebut adalah function main() yang dijalankan pada saat aplikasi di-run. Pada kode di atas, runApp() dipanggil dengan argument MyApp(), yaitu sebuah class MyApp yang akan dijalankan.</p>
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+3. Class MyApp
+```dart
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+      ),
+      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+    );
+  }
+}
+```
+<p>Kode di atas adalah class MyApp yang merupakan turunan dari class StatelessWidget. MyApp merupakan class utama yang akan dijalankan ketika aplikasi di-run.<br>Method build() di dalam class MyApp akan mengembalikan tampilan UI utama aplikasi, yaitu MaterialApp. MaterialApp merupakan sebuah widget yang menyediakan beberapa konfigurasi, seperti judul (title), tema (theme), dan tampilan halaman utama (home).</p>
+
+4. Class MyHomePage
+```dart
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key, required this.title});
+
+  final String title;
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  int _counter = 0;
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+
+  void _resetCounter() {
+    setState(() {
+      _counter = 0;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // ...
+  }
+}
+```
+<p>Kode di atas adalah class MyHomePage, yang merupakan turunan dari class StatefulWidget. MyHomePage memiliki state (stateful) dan dua method yaitu _incrementCounter() dan _resetCounter() untuk melakukan perubahan pada _counter.<br>
+Method build() di dalam class _MyHomePageState akan mengembalikan tampilan UI untuk halaman utama aplikasi, yaitu Scaffold yang memiliki beberapa widget turunan seperti AppBar, Center, dan FloatingActionButton.<br>
+Dalam Scaffold, pada bagian appBar akan ditampilkan sebuah AppBar dengan judul (title) yang diambil dari MyHomePage.title. Sedangkan pada bagian body, akan ditampilkan sebuah Center yang berisi sebuah Column yang berisikan teks Nama : Bilal AlHafidz | NIM : 312110397 | Kelas : TI.21.A.1 | Count : $_counter.<br>
+Pada bagian floatingActionButton, terdapat dua FloatingActionButton, yang masing-masing memiliki method yang berbeda (_incrementCounter() dan _resetCounter()) dan tampilan yang berbeda pula.</p>
+
+## Output
+![Output](img/output.jpg)
+
+# Terima Kasih!
